@@ -18,7 +18,8 @@ public class Weather extends NCModelFileAdapter {
     private final OpenWeatherService openWeather = new OpenWeatherService("<enter-your-key-here>", 5, 7);
 
     private final GeoManager geoMrg = new GeoManager();
-    private static final int DAYS_SHIFT = 5;
+    private static final int DAYS_SHIFT_BACK = 5;
+    private static final int DAYS_SHIFT_FORWARD = 7;
     private static final Gson GSON = new Gson();
     private static final Set<String> LOCAL_WORDS = new HashSet<>(Arrays.asList("my", "local", "hometown"));
 
@@ -111,9 +112,9 @@ public class Weather extends NCModelFileAdapter {
             Instant to = now;
 
             if (indToksOpt.stream().anyMatch(tok -> tok.getId().equals("wt:hist")))
-                from = from.minus(DAYS_SHIFT, DAYS);
+                from = from.minus(DAYS_SHIFT_BACK, DAYS);
             else if (indToksOpt.stream().anyMatch(tok -> tok.getId().equals("wt:fcast")))
-                to = from.plus(DAYS_SHIFT, DAYS);
+                to = from.plus(DAYS_SHIFT_FORWARD, DAYS);
 
             if (dateTokOpt.isPresent()) { // Date token overrides any indicators.
                 NCToken dateTok = dateTokOpt.get();
