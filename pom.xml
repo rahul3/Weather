@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- NLPCraft requires Java 11 or later.-->
+        <java.ver>11</java.ver>
+
+        <!-- Change it to the latest (or desired) NLPCraft version, if required. -->
+        <nlpcraft.ver>0.7.5</nlpcraft.ver>
+        <mvn.compiler.ver>3.7.0</mvn.compiler.ver>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <groupId>demo</groupId>
+    <artifactId>Weather</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.nlpcraft</groupId>
+            <artifactId>nlpcraft</artifactId>
+            <version>0.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.nlpcraft</groupId>
+            <artifactId>java-client</artifactId>
+            <version>0.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${mvn.compiler.ver}</version>
+                <configuration>
+                    <source>${java.ver}</source>
+                    <target>${java.ver}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

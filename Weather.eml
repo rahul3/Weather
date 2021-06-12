@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="11" jdk_type="JavaSDK">
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="nlpcraft-example-weather-0.7.5.jar" scope="COMPILE">
+		<srcroot url="jar://$MODULE_DIR$/../incubator-nlpcraft/nlpcraft-examples/weather/target/nlpcraft-example-weather-0.7.5-sources.jar!/"/>
+	</lib>
+</component>
