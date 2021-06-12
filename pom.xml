@@ -27,20 +27,8 @@
             <artifactId>nlpcraft</artifactId>
             <version>0.7.5</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.nlpcraft</groupId>
-            <artifactId>java-client</artifactId>
-            <version>0.7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
