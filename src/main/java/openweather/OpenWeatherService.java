@@ -191,7 +191,7 @@ public class OpenWeatherService {
         if (Duration.between(from, to).get(SECONDS) > maxDaysForwardSecs && forwardSeconds > 0)
             throw new OpenWeatherMapException(String.format("Forward Request period is too long [from=%s, to=%s]", from, to));
 
-        if (Duration.between(from, to).get(SECONDS) > maxDaysBackSecs && backSeconds > 0)
+        if (Duration.between(from, to).get(SECONDS) > maxDaysBackSecs && backSeconds > 0 && to.getEpochSecond() <= now.getEpochSecond())
             throw new OpenWeatherMapException(String.format("Backward Request period is too long [from=%s, to=%s]", from, to));
 
         long durMs = to.toEpochMilli() - from.toEpochMilli();
