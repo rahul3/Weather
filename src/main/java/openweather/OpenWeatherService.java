@@ -169,7 +169,7 @@ public class OpenWeatherService {
     }
 
     /**
-     * See https://darksky.net/dev/docs#response-format to extract fields.
+     * See https://openweathermap.org/api/one-call-api#hist_parameter to extract fields.
      *
      * @param lat Latitude.
      * @param lon Longitude.
@@ -182,7 +182,7 @@ public class OpenWeatherService {
         assert from != null;
         assert to != null;
 
-        log.debug("DarkSky time machine API call [lat={}, lon={}, from={}, to={}]", lat, lon, from, to);
+        log.debug("OpenWeather time machine API call [lat={}, lon={}, from={}, to={}]", lat, lon, from, to);
 
         Long forwardSeconds = to.getEpochSecond() - from.getEpochSecond();
         Long backSeconds = from.getEpochSecond() - to.getEpochSecond();
@@ -213,7 +213,7 @@ public class OpenWeatherService {
     }
 
     /**
-     * See https://darksky.net/dev/docs#response-format to extract fields.
+     * See https://openweathermap.org/api/one-call-api#hist_parameter to extract fields.
      *
      * @param lat Latitude.
      * @param lon Longitude.
