@@ -184,14 +184,15 @@ public class OpenWeatherService {
 
         log.debug("OpenWeather time machine API call [lat={}, lon={}, from={}, to={}]", lat, lon, from, to);
 
-        Long forwardSeconds = to.getEpochSecond() - from.getEpochSecond();
-        Long backSeconds = from.getEpochSecond() - to.getEpochSecond();
+        Instant now = Instant.now();
+        Long forwardSeconds = to.getEpochSecond() - now.getEpochSecond();
+        Long backSeconds = now.getEpochSecond() - from.getEpochSecond();
 
         if (Duration.between(from, to).get(SECONDS) > maxDaysForwardSecs && forwardSeconds > 0)
-            throw new OpenWeatherMapException(String.format("Request period is too long [from=%s, to=%s]", from, to));
+            throw new OpenWeatherMapException(String.format("Forward Request period is too long [from=%s, to=%s]", from, to));
 
         if (Duration.between(from, to).get(SECONDS) > maxDaysBackSecs && backSeconds > 0)
-            throw new OpenWeatherMapException(String.format("Request period is too long [from=%s, to=%s]", from, to));
+            throw new OpenWeatherMapException(String.format("Backward Request period is too long [from=%s, to=%s]", from, to));
 
         long durMs = to.toEpochMilli() - from.toEpochMilli();
 
