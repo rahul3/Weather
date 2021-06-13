@@ -122,7 +122,6 @@ public class Weather extends NCModelFileAdapter {
                 from = Instant.ofEpochMilli(dateTok.meta("nlpcraft:date:from"));
                 to = Instant.ofEpochMilli(dateTok.meta("nlpcraft:date:to"));
 
-                System.out.println("LOG: from = " + from + " and TO: " + to);
             }
 
             Pair<Double, Double> latLon = prepGeo(ctx, cityTokOpt); // Handles optional city too.
